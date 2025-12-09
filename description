@@ -1,0 +1,69 @@
+# Azure Honeypot Lab
+
+This repository demonstrates a **cybersecurity honeypot lab** deployed using **Azure Container Instances**.  
+The lab captures logs from simulated attack traffic and provides evidence for monitoring and analysis.
+
+---
+
+## 🛠 Lab Overview
+
+**Objective:**  
+Deploy a publicly accessible honeypot container to capture logs for cybersecurity monitoring.  
+
+**Components Used:**  
+- Azure Resource Group (`RG-Honeypot`)  
+- Azure Container Instance (`honeypot-web`)  
+- Public IP for external access  
+- Log Analytics Workspace (optional for extended logging)  
+
+**Container Image:**  
+`mcr.microsoft.com/azuredocs/aci-helloworld` — prints messages to stdout, which appear in Azure Container logs.
+
+---
+
+## 📂 Evidence
+
+| File | Description |
+|------|-------------|
+| `02-container-instance-running.png` | Container overview and state |
+| `03-honeypot-webpage.png` | Public IP webpage (simulated honeypot) |
+| `04-logs.png` | Logs showing container stdout activity |
+| `05-log-export.csv` | CSV export of container logs |
+
+> Optional: Include `IncidentReport.pdf` in `threat-report/` folder summarizing suspicious traffic.
+
+---
+
+## 📝 How Traffic Was Generated
+
+- Browsed the Public IP multiple times  
+- Simulated attacks with paths like `/admin` and `/login`  
+- Traffic appears in the container logs in the Azure portal  
+
+---
+
+## ⚡ Learning Outcomes
+
+1. Deployed Azure Container Instance as a honeypot  
+2. Generated and captured container logs  
+3. Collected evidence suitable for SOC2 / ISO27001 style reporting  
+4. Gained hands-on experience with container logging and monitoring in Azure  
+
+---
+
+## 🔗 Next Steps / Extensions
+
+- Forward container logs to **Log Analytics Workspace** for advanced queries  
+- Add multiple honeypot containers simulating different services  
+- Create dashboards to visualize traffic patterns and attacker behavior  
+- Automate alerts for suspicious access attempts
+
+---
+
+## 📊 Sample Log Query (Kusto Query Language)
+
+```kusto
+ContainerLog
+| sort by TimeGenerated desc
+| project TimeGenerated, LogEntry
+| limit 50
