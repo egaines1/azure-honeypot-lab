@@ -1,69 +1,59 @@
-# Azure Honeypot Lab
+Project Title
 
-This repository demonstrates a **cybersecurity honeypot lab** deployed using **Azure Container Instances**.  
-The lab captures logs from simulated attack traffic and provides evidence for monitoring and analysis.
+Beginner Azure Security Demo – Microsoft Defender for Cloud
 
----
+Project Description (LinkedIn / GitHub README)
 
-## 🛠 Lab Overview
+Objective:
+Demonstrate fundamental cybersecurity skills in Azure by creating a free-tier Storage Account, monitoring it using Microsoft Defender for Cloud, and implementing preventive/corrective controls. This project highlights detective and preventive security controls as well as Azure resource organization.
 
-**Objective:**  
-Deploy a publicly accessible honeypot container to capture logs for cybersecurity monitoring.  
+Project Steps & Screenshots
+Step 1 – View Security Recommendations (Detective Control)
 
-**Components Used:**  
-- Azure Resource Group (`RG-Honeypot`)  
-- Azure Container Instance (`honeypot-web`)  
-- Public IP for external access  
-- Log Analytics Workspace (optional for extended logging)  
+Accessed Microsoft Defender for Cloud from the Storage Account
 
-**Container Image:**  
-`mcr.microsoft.com/azuredocs/aci-helloworld` — prints messages to stdout, which appear in Azure Container logs.
+Clicked View all recommendations to identify potential security issues
 
----
+Example recommendations:
 
-## 📂 Evidence
+Enable Storage Account encryption
 
-| File | Description |
-|------|-------------|
-| `02-container-instance-running.png` | Container overview and state |
-| `03-honeypot-webpage.png` | Public IP webpage (simulated honeypot) |
-| `04-logs.png` | Logs showing container stdout activity |
-| `05-log-export.csv` | CSV export of container logs |
+Enable secure transfer
 
-> Optional: Include `IncidentReport.pdf` in `threat-report/` folder summarizing suspicious traffic.
+Screenshot: Step1_Recommendations.png
 
----
+Skill demonstrated: Monitoring and identifying security risks (detective control).
 
-## 📝 How Traffic Was Generated
+Step 2 – Apply Preventive/Corrective Control
 
-- Browsed the Public IP multiple times  
-- Simulated attacks with paths like `/admin` and `/login`  
-- Traffic appears in the container logs in the Azure portal  
+Navigated to Storage Account → Settings → Encryption
 
----
+Enabled Microsoft-managed keys (standard Azure encryption at rest)
 
-## ⚡ Learning Outcomes
+Verified that encryption is applied
 
-1. Deployed Azure Container Instance as a honeypot  
-2. Generated and captured container logs  
-3. Collected evidence suitable for SOC2 / ISO27001 style reporting  
-4. Gained hands-on experience with container logging and monitoring in Azure  
+Optional: Enabled Secure Transfer for enhanced preventive control
 
----
+Screenshot: Step2_RemediationApplied.png
 
-## 🔗 Next Steps / Extensions
+Skill demonstrated: Implementing preventive/corrective security controls to protect data.
 
-- Forward container logs to **Log Analytics Workspace** for advanced queries  
-- Add multiple honeypot containers simulating different services  
-- Create dashboards to visualize traffic patterns and attacker behavior  
-- Automate alerts for suspicious access attempts
+Step 3 – Azure Resource Organization
 
----
+All resources were grouped in a dedicated Resource Group: CyberSecurityDemoRG
 
-## 📊 Sample Log Query (Kusto Query Language)
+This keeps the project organized and simplifies management
 
-```kusto
-ContainerLog
-| sort by TimeGenerated desc
-| project TimeGenerated, LogEntry
-| limit 50
+Screenshot: Step3_ResourceGroup.png
+
+Skill demonstrated: Azure governance and best practices for resource management.
+
+Tools / Technologies
+
+Azure Portal (Free Tier)
+
+Microsoft Defender for Cloud (Free Tier)
+
+Azure Storage Account (General Purpose v2, Blob Storage, LRS)
+
+Screenshot tool (Snipping Tool / Mac Screenshot)
