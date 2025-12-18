@@ -20,9 +20,6 @@ It is designed for beginners building a portfolio with practical Azure security 
 - Example recommendations:
   - Enable Storage Account encryption
   - Enable secure transfer
-- **Screenshot:**  
-![Step1_Recommendations](./screenshots/Step1_Recommendations.png)
-
 > **Skill demonstrated:** Monitoring and identifying security risks (detective control).
 
 ---
@@ -32,9 +29,6 @@ It is designed for beginners building a portfolio with practical Azure security 
 - Enabled **Microsoft-managed keys** (standard Azure encryption at rest).
 - Verified encryption is applied.
 - Optional: Enabled **Secure Transfer** for enhanced preventive control.
-- **Screenshot:**  
-![Step2_RemediationApplied](./screenshots/Step2_RemediationApplied.png)
-
 > **Skill demonstrated:** Implementing preventive/corrective security controls to protect data.
 
 ---
@@ -42,9 +36,6 @@ It is designed for beginners building a portfolio with practical Azure security 
 ### Step 3 – Azure Resource Organization
 - Resources grouped in a dedicated **Resource Group**: `CyberSecurityDemoRG`.
 - Keeps project organized and simplifies management.
-- **Screenshot:**  
-![Step3_ResourceGroup](./screenshots/Step3_ResourceGroup.png)
-
 > **Skill demonstrated:** Azure governance and resource management.
 
 ---
